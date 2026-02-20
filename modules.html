@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modullar - SonoRise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="modules-page">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html">
+                <img src="SonoRise (1).png" alt="SonoRise">
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="modules.html">Modullar</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="#" onclick="showOrders()">Sifarişlərim</a>
+            </div>
+            <button onclick="window.location.href='dashboard.html'" class="btn-back">
+                Geri
+            </button>
+        </nav>
+
+        <!-- Modules Content -->
+        <div class="modules-content">
+            <h1>Modul Növləri</h1>
+            <p class="subtitle">Ehtiyacınıza uyğun modulu seçin</p>
+        
+            <!-- Fərdi Modul Seçimi -->
+            <div style="background:#1a1a1a; border:1px solid #2a2a2a; border-radius:12px; padding:24px; margin-bottom:32px;">
+                <h2 style="color:#fff; font-size:1.2rem; margin-bottom:8px;">🔧 Fərdi Modul Sifarişi</h2>
+                <p style="color:#9ca3af; font-size:0.9rem; margin-bottom:20px;">Hazır paket istəmirsinizsə, istədiyiniz sayda modul seçin</p>
+                
+                <div class="form-group">
+                    <label>Ədəd</label>
+                    <input type="number" id="customQtyInput" min="1" placeholder="Məs: 7" 
+                        style="width:100%; padding:10px 14px; background:#0f0f0f; border:1px solid #3b82f6; border-radius:8px; color:#fff; font-size:0.9rem; outline:none;"
+                        oninput="calcCustomTotal()">
+                </div>
+            
+                <div id="customTotalBox" style="display:none; background:#0f0f0f; border:1px solid #3b82f6; border-radius:8px; padding:12px; margin-bottom:16px;">
+                    <div style="display:flex; justify-content:space-between;">
+                        <span style="color:#9ca3af;">Ümumi məbləğ:</span>
+                        <span id="customTotalValue" style="color:#3b82f6; font-size:1.1rem; font-weight:700;"></span>
+                    </div>
+                </div>
+            
+                <button onclick="openCustomOrder()" class="btn-primary" style="width:100%;">Sifariş Ver</button>
+            </div>
+        
+            <div class="module-types-grid" id="moduleTypesGrid"></div>
+        </div>
+
+            <div class="module-types-grid" id="moduleTypesGrid">
+                <!-- JavaScript will populate this -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+<div id="addModuleModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:#1a1a1a; border:1px solid #2a2a2a; border-radius:16px; padding:32px; max-width:560px; width:90%; max-height:90vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+        
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <h2 style="color:#fff;">Sifariş Ver</h2>
+            <button onclick="closeModal()" style="background:none; border:none; color:#9ca3af; font-size:1.5rem; cursor:pointer;">✕</button>
+        </div>
+        <p style="color:#9ca3af; margin-bottom:20px;">Seçim: <strong id="selectedModuleType" style="color:#fff;"></strong></p>
+
+        <form id="addModuleForm">
+
+            <p style="color:#3b82f6; font-weight:600; margin-bottom:12px;">👤 Şəxsi Məlumatlar</p>
+
+            <div class="form-group">
+                <label>Ad Soyad</label>
+                <input type="text" id="fullName"  required>
+            </div>
+
+            <div class="form-group">
+                <label>FIN Kod</label>
+                <input type="text" id="finCode" placeholder="Məs: XX567XX" maxlength="7" required>
+            </div>
+
+            <div class="form-group">
+                <label>Telefon Nömrəsi</label>
+                <input type="tel" id="phone" placeholder="Məs: +994 50 555 55 55" required>
+            </div>
+
+            <p style="color:#3b82f6; font-weight:600; margin:16px 0 12px;">📍 Quraşdırma Yeri</p>
+
+            <div class="form-group">
+                <label>Ünvan</label>
+                <input type="text" id="location" placeholder="Məs: Nizami küçəsi 24, Bakı" required>
+            </div>
+
+            <div class="form-group">
+                <label>Hara quraşdırmaq istəyirsiniz?</label>
+                <input type="text" id="information" placeholder="Məs: Bina girişi, yol kənarı..." required>
+            </div>
+
+            <p style="color:#3b82f6; font-weight:600; margin:16px 0 12px;">💳 Kart Məlumatları</p>
+
+            <div class="form-group">
+                <label>Kart Nömrəsi</label>
+                <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCard(this)">
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                <div class="form-group">
+                    <label>Son İstifadə Tarixi</label>
+                    <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)">
+                </div>
+                <div class="form-group">
+                    <label>CVV</label>
+                    <input type="text" id="cardCvv" placeholder="***" maxlength="3">
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" onclick="closeModal()">Ləğv et</button>
+                <button type="button" class="btn-primary" onclick="submitOrder()">Sifarişi Təsdiqlə ✓</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script src="lang.js"></script>
+<script>
+document.querySelector('.nav-right') && document.querySelector('.nav-right').insertAdjacentHTML('afterbegin', renderLangSwitcher());
+document.querySelector('.btn-back') && (document.querySelector('.btn-back').insertAdjacentHTML('beforebegin', renderLangSwitcher()));
+document.querySelector('.modules-content h1').textContent = t('modules_page_title');
+document.querySelector('.subtitle').textContent = t('modules_page_subtitle');
+</script>
+<script src="modules.js"></script>
+</body>
+</html>

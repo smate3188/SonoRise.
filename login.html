@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş - SonoRise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <a href="index.html">
+                <img src="SonoRise (1).png" alt="SonoRise">
+                </a>
+                <h2>Giriş</h2>
+            </div>
+
+            <div id="error-message" class="error-message" style="display: none;"></div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Şifrə</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="forgot-password">
+                    <a href="forgot-password.html">Şifrəni unutmusunuz?</a>
+                </div>
+
+                <button type="submit" class="btn-primary">Daxil ol</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Hesabınız yoxdur? <a href="register.html">Qeydiyyatdan keçin</a></p>
+                <p><a href="index.html">Ana səhifəyə qayıt</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="lang.js"></script>
+    <script>
+    document.querySelector('.nav-links') && (document.querySelector('.nav-links').insertAdjacentHTML('beforebegin', renderLangSwitcher()));
+    document.querySelector('.auth-header h2').textContent = t('login_title');
+    document.querySelector('label[for="email"]') && (document.querySelector('label[for="email"]').textContent = t('login_email'));
+    document.querySelector('label[for="password"]') && (document.querySelector('label[for="password"]').textContent = t('login_password'));
+    document.querySelector('.forgot-password a').textContent = t('login_forgot');
+    document.querySelector('button[type="submit"]').textContent = t('login_btn');
+    const footer = document.querySelector('.auth-footer');
+    footer.querySelector('p:first-child').innerHTML = t('login_no_account') + ' <a href="register.html">' + t('login_register') + '</a>';
+    footer.querySelector('p:last-child').innerHTML = '<a href="index.html">' + t('login_back') + '</a>';
+    
+    // Navbara dil seçici əlavə et
+    document.querySelector('.auth-box').insertAdjacentHTML('afterbegin', '<div style="text-align:right; margin-bottom:12px;">' + renderLangSwitcher() + '</div>');
+    </script>
+    <script src="auth.js"></script>
+</body>
+</html>

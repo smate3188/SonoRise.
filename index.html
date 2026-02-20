@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonoRise | Səs-küyü Enerjiyə Çevirin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html">
+                <img src="SonoRise (1).png" alt="SonoRise">
+             </a>
+        </div>
+        <div class="nav-menu">
+            <a href="index.html">Ana səhifə</a>
+            <a href="#features">Xüsusiyyətlər</a>
+            <a href="#calculator">Kalkulyator</a>
+            <a href="#modules">Modullar</a>
+            <a href="#hardware">Texnologiya</a>
+        </div>
+        <div class="navbar-right-group"><div id="langSwitcherContainer"></div><div class="nav-links" id="navLinks"></div></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- SƏS DALGALARI ANİMASİYASI -->
+        <div class="sound-waves">
+            <div class="wave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600" preserveAspectRatio="none">
+                    <path d="M0,300 Q350,200 700,300 T1400,300" fill="none" stroke="#3b82f6" stroke-width="4" opacity="0.7"/>
+                    <path d="M0,350 Q350,450 700,350 T1400,350" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.5"/>
+                </svg>
+            </div>
+            <div class="wave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600" preserveAspectRatio="none">
+                    <path d="M0,280 Q350,380 700,280 T1400,280" fill="none" stroke="#60a5fa" stroke-width="3" opacity="0.6"/>
+                    <path d="M0,320 Q350,220 700,320 T1400,320" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.4"/>
+                </svg>
+            </div>
+            <div class="wave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600" preserveAspectRatio="none">
+                    <path d="M0,290 Q350,240 700,290 T1400,290" fill="none" stroke="#2563eb" stroke-width="3.5" opacity="0.6"/>
+                    <path d="M0,310 Q350,360 700,310 T1400,310" fill="none" stroke="#2563eb" stroke-width="2.5" opacity="0.5"/>
+                </svg>
+            </div>
+            <div class="wave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600" preserveAspectRatio="none">
+                    <path d="M0,270 Q350,330 700,270 T1400,270" fill="none" stroke="#1e40af" stroke-width="2.5" opacity="0.5"/>
+                    <path d="M0,330 Q350,270 700,330 T1400,330" fill="none" stroke="#1e40af" stroke-width="2" opacity="0.3"/>
+                </svg>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Səs-küyü <span class="highlight">Enerjiyə</span> Çevirin
+            </h1>
+            <p class="hero-subtitle">
+                Şəhər səs-küyü və sənaye mühitlərindən elektrik enerjisi istehsal edən innovativ texnologiya
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="stat-number">50mW+</div>
+                    <div class="stat-label">Modul başına güc</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Fasiləsiz istehsal</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-number">750g</div>
+                    <div class="stat-label">1 ildə azaldılan (karbon tullantısı) miqdarı</div>
+                </div>
+            </div>
+            <a href="register.html" class="btn-hero">İndi Başlayın</a>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="features" class="features">
+        <h2>Necə İşləyir?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Səs Dalğaları</h3>
+                <p>Avtomobil, zavod və ictimai yerlərdən gələn səs-küy tutulur</p>
+            </div>
+            <div class="feature-card">
+                <h3>Mexaniki Çevrilmə</h3>
+                <p>Piezoelektrik kristallar mexaniki təzyiqi birbaşa elektrik gərginliyinə çevirir</p>
+            </div>
+            <div class="feature-card">
+                <h3>Enerji İstehsalı</h3>
+                <p>Super-kondensatorlar və ya batareya modulları vasitəsilə mexaniki enerji elektrik enerjisinə çevrilir və saxlanılır</p>
+            </div>
+        </div>
+    </section>
+<!-- Enerji Kalkulyatoru -->
+<section id="calculator" class="calculator-section">
+    <div class="calculator-container">
+            <h2>Təsir Kalkulyatoru</h2>
+            <p class="calculator-intro">
+                Sizin yanınızda gördüyünüz bu prototip bizim texnologiyamızın nüvəsidir. 
+                Aşağıdakı kalkulyator vasitəsilə bu texnologiyanın böyük sənaye sahələrində 
+                yaradacağı real təsirini görə bilərsiniz.
+            </p>
+            
+            <div class="calculator-box">
+                <div class="input-section">
+                    <label for="moduleCount">Modul Sayı</label>
+                    <input 
+                        type="number" 
+                        id="moduleCount" 
+                        placeholder="Modul sayını daxil edin" 
+                        min="1"
+                        value="100"
+                    >
+                </div>
+                
+                <div class="results-section">
+                    <div class="result-card">
+                        <div class="result-icon"></div>
+                        <div class="result-info">
+                            <div class="result-label">İllik Enerji İstehsalı</div>
+                            <div class="result-value" id="energyResult">438 W</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon"></div>
+                        <div class="result-info">
+                            <div class="result-label">İllik CO₂ Azalması</div>
+                            <div class="result-value" id="carbonResult">75 g</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon"></div>
+                        <div class="result-info">
+                            <div class="result-label">İllik Qənaət (təxmini)</div>
+                            <div class="result-value" id="savingsResult">$26</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Scrolling Technology Section -->
+<!-- Scrolling Text Section -->
+<div class="scroll-text-wrapper">
+    <section class="scroll-text-section">
+        <div class="scroll-text-track">
+            <span>SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp;</span>
+            <span>SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp; SonoRise &nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </section>
+</div>
+
+<script>
+    function calculateImpact() {
+        const moduleCount = parseInt(document.getElementById('moduleCount').value) || 0;
+        document.getElementById('energyResult').textContent = (moduleCount * 0.438).toLocaleString('az-AZ', {maximumFractionDigits: 0}) + ' kWh';
+        document.getElementById('carbonResult').textContent = (moduleCount * 750).toLocaleString('az-AZ', {maximumFractionDigits: 0}) + ' g';
+        document.getElementById('savingsResult').textContent = (moduleCount * 5) + '-' + (moduleCount * 8) + ' AZN';
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+        calculateImpact();
+        const input = document.getElementById('moduleCount');
+        input.addEventListener('input', calculateImpact);
+        input.addEventListener('change', calculateImpact);
+        input.addEventListener('keyup', calculateImpact);
+
+        const wrapper = document.querySelector('.scroll-text-wrapper');
+        const track = document.querySelector('.scroll-text-track');
+
+        window.addEventListener('scroll', function() {
+            const rect = wrapper.getBoundingClientRect();
+            const distanceFromTop = window.scrollY + rect.top;
+            const scrolled = window.scrollY - distanceFromTop + window.innerHeight;
+            if (scrolled > 0) {
+                track.style.transform = `translateX(-${scrolled * 0.8}px)`;
+            }
+        });
+    });
+</script>
+    <!-- Module Types -->
+    <section id="modules" class="modules-showcase">
+        <h2>Modul Növləri</h2>
+        <div class="showcase-grid">
+            <div class="showcase-card">
+                <h3>Yol Kənarı</h3>
+                <p>Avtomobil səs-küyündən enerji (Cihaz, dirəyə montaj və baza bulud monitorinqi daxildir)</p>
+                <div class="showcase-specs">
+                    <span>50mW güc</span>
+                    <span>70-90 dB</span>
+                </div>
+                <div class="price">2,500 AZN</div>
+            </div>
+            <div class="showcase-card">
+                <h3>Sənaye</h3>
+                <p>Zavod və fabrik səs-küyü (Ağır sənaye şəraitinə davamlı korpus və 10 illik texniki servis xidməti daxildir.) "Özünü ödəmə müddəti: 2 il"</p>
+                <div class="showcase-specs">
+                    <span>150mW güc</span>
+                    <span>85-110 dB</span>
+                </div>
+                <div class="price">5,600 AZN</div>
+            </div>
+            <div class="showcase-card">
+                <h3>İctimai Yerlər</h3>
+                <p>Konsert, stadion və s. (Daha yüksək həssaslıqlı sensorlar və rütubətə qarşı xüsusi müdafiə qatı daxildir)</p>
+                <div class="showcase-specs">
+                    <span>100mW güc</span>
+                    <span>80-105 dB</span>
+                </div>
+                <div class="price">4,500 AZN</div>
+            </div>
+            <div class="showcase-card">
+                <h3>Metro/Tunel</h3>
+                <p>Nəqliyyat tunellərində (Rütubət və toza qarşı cihazın korpusunun xüsusi olaraq izolyasiya olunması daxildir)</p>
+                <div class="showcase-specs">
+                    <span>75mW güc</span>
+                    <span>75-95 dB</span>
+                </div>
+                <div class="price">5,500 AZN</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hardware Info -->
+    <section id="hardware" class="hardware-section">
+        <h2>Hardware Texnologiyası</h2>
+        <div class="hardware-grid">
+            <div class="hardware-card">
+                <h3>Piezoelektrik Kristallar</h3>
+                <p>Səs dalğalarını mexaniki təzyiqə çevirən xüsusi kristallar. Hər bir kristal 0.1-1W enerji istehsal edir.</p>
+            </div>
+            <div class="hardware-card">
+                <h3>Rezonans Kamerası</h3>
+                <p>Səs dalğalarını gücləndirir və optimal tezliyə gətirir. 60-110 dB arası səslər üçün ən effektivdir.</p>
+            </div>
+            <div class="hardware-card">
+                <h3>Enerji Saxlama</h3>
+                <p>Kondensator və kiçik batareyalar vasitəsilə istehsal olunan enerji saxlanılır və stabilləşdirilir.</p>
+            </div>
+            <div class="hardware-card">
+                <h3>Smart İdarəetmə</h3>
+                <p>IoT sensorları real-time enerji istehsalını monitorinq edir və optimize edir.</p>
+            </div>
+        </div>
+    </section>
+    <script src="lang.js"></script>
+
+    <script>
+        // Kalkulyator funksiyası
+        function calculateImpact() {
+            const moduleInput = document.getElementById('moduleCount');
+            const energyResult = document.getElementById('energyResult');
+            const carbonResult = document.getElementById('carbonResult');
+            const savingsResult = document.getElementById('savingsResult');
+            
+            const moduleCount = parseInt(moduleInput.value) || 0;
+            
+            // Hesablamalar
+            // 500mW = 0.5W per modul, 24/7 işləyir
+            // İllik: 0.5W × 24 saat × 365 gün = 4,380 Wh = 4.38 kWh per modul
+            const energyPerYear = (moduleCount * 0.438 ); // kWh
+            
+            // CO2: hər modul 750g = 0.75kg
+            const carbonReduction = (moduleCount * 750); // kg
+            
+            // Qənaət: təxminən $0.06 per kWh (Azərbaycanda orta qiymət)
+            const savings = moduleCount * 5 + '-' + moduleCount * 8;
+            
+            // Nəticələri göstər
+            energyResult.textContent = energyPerYear.toLocaleString('az-AZ', {maximumFractionDigits: 0}) + ' kWh';
+            carbonResult.textContent = carbonReduction.toLocaleString('az-AZ', {maximumFractionDigits: 0}) + ' g';
+            savingsResult.textContent =savings.toLocaleString('az-AZ', {maximumFractionDigits: 2}) + ' AZN';
+        }
+
+        // Səhifə yükləndikdən sonra işə sal
+        window.addEventListener('DOMContentLoaded', function() {
+            const moduleInput = document.getElementById('moduleCount');
+            
+            // İlk hesablama
+            calculateImpact();
+            
+            // Input dəyişəndə hesabla
+            moduleInput.addEventListener('input', calculateImpact);
+            moduleInput.addEventListener('change', calculateImpact);
+            moduleInput.addEventListener('keyup', calculateImpact);
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 SonoRise Platform</p>
+    </footer>
+    <script>
+        function checkAuthAndRedirect() {
+            const user = localStorage.getItem('user');
+            if (user) {
+                window.location.href = 'dashboard.html';
+            } else {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+    <script>
+        // Dil seçicini navbara əlavə et
+        document.getElementById('langSwitcherContainer').innerHTML = renderLangSwitcher();
+        
+        // Bütün mətnləri tərcümə et
+        document.querySelector('.nav-menu a[href="index.html"]').textContent = t('nav_home');
+        document.querySelector('.nav-menu a[href="#features"]').textContent = t('nav_features');
+        document.querySelector('.nav-menu a[href="#calculator"]').textContent = t('nav_calculator');
+        document.querySelector('.nav-menu a[href="#modules"]').textContent = t('nav_modules');
+        document.querySelector('.nav-menu a[href="#hardware"]').textContent = t('nav_hardware');
+        
+        document.querySelector('.hero-title').innerHTML = t('hero_title_1') + ' <span class="highlight">' + t('hero_title_2') + '</span> ' + t('hero_title_3');
+        document.querySelector('.hero-subtitle').textContent = t('hero_subtitle');
+        document.querySelector('.btn-hero').textContent = t('hero_btn');
+        
+        const statLabels = document.querySelectorAll('.stat-label');
+        statLabels[0].textContent = t('hero_stat1');
+        statLabels[1].textContent = t('hero_stat2');
+        statLabels[2].textContent = t('hero_stat3');
+        
+        document.querySelector('.features h2').textContent = t('features_title');
+        const featureCards = document.querySelectorAll('.feature-card');
+        featureCards[0].querySelector('h3').textContent = t('feature1_title');
+        featureCards[0].querySelector('p').textContent = t('feature1_desc');
+        featureCards[1].querySelector('h3').textContent = t('feature2_title');
+        featureCards[1].querySelector('p').textContent = t('feature2_desc');
+        featureCards[2].querySelector('h3').textContent = t('feature3_title');
+        featureCards[2].querySelector('p').textContent = t('feature3_desc');
+        
+        document.querySelector('.calculator-container h2').textContent = t('calc_title');
+        document.querySelector('.calculator-intro').textContent = t('calc_intro');
+        document.querySelector('label[for="moduleCount"]').textContent = t('calc_module_count');
+        document.querySelectorAll('.result-label')[0].textContent = t('calc_energy');
+        document.querySelectorAll('.result-label')[1].textContent = t('calc_carbon');
+        document.querySelectorAll('.result-label')[2].textContent = t('calc_savings');
+        
+        document.querySelector('.modules-showcase h2').textContent = t('modules_title');
+        const showcaseCards = document.querySelectorAll('.showcase-card');
+        showcaseCards[0].querySelector('h3').textContent = t('mod1_title');
+        showcaseCards[1].querySelector('h3').textContent = t('mod2_title');
+        showcaseCards[2].querySelector('h3').textContent = t('mod3_title');
+        showcaseCards[3].querySelector('h3').textContent = t('mod4_title');
+        
+        document.querySelector('.hardware-section h2').textContent = t('hardware_title');
+        const hwCards = document.querySelectorAll('.hardware-card');
+        hwCards[0].querySelector('h3').textContent = t('hw1_title');
+        hwCards[0].querySelector('p').textContent = t('hw1_desc');
+        hwCards[1].querySelector('h3').textContent = t('hw2_title');
+        hwCards[1].querySelector('p').textContent = t('hw2_desc');
+        hwCards[2].querySelector('h3').textContent = t('hw3_title');
+        hwCards[2].querySelector('p').textContent = t('hw3_desc');
+        hwCards[3].querySelector('h3').textContent = t('hw4_title');
+        hwCards[3].querySelector('p').textContent = t('hw4_desc');
+        
+        document.querySelector('.footer p').textContent = t('footer');
+        
+        // Nav links
+        const navLinks = document.getElementById('navLinks');
+        const loggedUser = localStorage.getItem('user');
+        if (loggedUser) {
+            navLinks.innerHTML = `<a href="dashboard.html" class="btn-primary">${t('nav_myaccount')}</a>`;
+        } else {
+            navLinks.innerHTML = `
+                <a href="login.html" class="btn-link">${t('nav_login')}</a>
+                <a href="register.html" class="btn-primary">${t('nav_register')}</a>
+            `;
+        }
+        </script>       
+</body>
+</html>

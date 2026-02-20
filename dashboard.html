@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SonoRise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html"><img src="SonoRise (1).png" alt="SonoRise"></a>
+            </div>
+            <div class="nav-menu">
+                <a href="modules.html" id="nav-modules-link">Modullar</a>
+                <a href="dashboard.html" id="nav-dashboard-link">Dashboard</a>
+                <a href="#" onclick="showOrders()" id="nav-orders-link">Sifarişlərim</a>
+            </div>
+            <div class="nav-right">
+                <div id="langSwitcherWrap"></div>
+                <span class="user-name"><span id="helloText">Salam</span>, <span id="userName">İstifadəçi</span></span>
+                <div class="notif-wrapper">
+                    <button class="notif-btn" onclick="toggleNotif()">🔔 <span class="notif-badge">3</span></button>
+                    <div class="notif-dropdown" id="notifDropdown" style="display:none;">
+                        <h4 id="notif-title">Bildirişlər</h4>
+                        <div class="notif-item">
+                            <span class="notif-dot green"></span>
+                            <div><p id="notif1-text">Sono-01 pik səmərəliliyə çatdı (+15% enerji)</p><small>14:20</small></div>
+                        </div>
+                        <div class="notif-item">
+                            <span class="notif-dot blue"></span>
+                            <div><p id="notif2-text">Enerji istehsalı aylıq hədəfi keçdi</p><small>11:05</small></div>
+                        </div>
+                        <div class="notif-item">
+                            <span class="notif-dot yellow"></span>
+                            <div><p id="notif3-text">Səs səviyyəsi 86.5 dB-ə çatdı</p><small>09:30</small></div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="logout()" class="btn-logout" id="logout-btn">Çıxış</button>
+            </div>
+        </nav>
+
+        <div class="dashboard-content">
+            <h1 id="dash-title">İdarə Paneli</h1>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-info"><h3 id="totalModules">0</h3><p id="stat-modules">Ümumi Modullar</p></div></div>
+                <div class="stat-card"><div class="stat-info"><h3 id="totalEnergy">0 kWh</h3><p id="stat-energy">Bu Ay Enerji</p></div></div>
+                <div class="stat-card"><div class="stat-info"><h3 id="avgSound">0 dB</h3><p id="stat-sound">Orta Səs Səviyyəsi</p></div></div>
+                <div class="stat-card green"><div class="stat-info"><h3 id="co2Reduced">0 kg</h3><p id="stat-co2">CO₂ Azalması</p></div></div>
+            </div>
+
+            <div class="modules-section">
+                <div class="section-header">
+                    <h2 id="my-modules-title">Mənim Modullarım</h2>
+                    <button onclick="openAddModal()" class="btn-primary" id="new-module-btn">+ Yeni Modul</button>
+                </div>
+                <div id="modulesContainer"></div>
+                
+                <div id="addModuleModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center;">
+                    <div style="background:#1a1a1a; border:1px solid #2a2a2a; border-radius:16px; padding:32px; max-width:500px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                            <h2 id="modal-title" style="color:#fff; font-size:1.4rem;">Yeni Modul Əlavə Et</h2>
+                            <button onclick="closeAddModal()" style="background:none; border:none; color:#9ca3af; font-size:1.5rem; cursor:pointer;">✕</button>
+                        </div>
+                        <p id="modal-desc" style="color:#9ca3af; font-size:0.9rem; margin-bottom:24px;">Sisteminizə uyğun yeni modulu seçərək şəbəkənizi genişləndirin</p>
+                        <div style="background:#0f0f0f; border:1px solid #2a2a2a; border-radius:12px; padding:20px; margin-bottom:16px;">
+                            <h3 id="connect-title" style="color:#fff; font-size:1rem; margin-bottom:6px;">🔌 Mövcud Modulu Qoş</h3>
+                            <p id="connect-desc" style="color:#9ca3af; font-size:0.85rem; margin-bottom:16px;">Əlinizdə olan SonoRise cihazını sistemə inteqrasiya edin (ID nömrəsi ilə)</p>
+                            <input type="text" id="deviceIdInput" placeholder="Cihaz ID: məs. SNR-2026-XXXX" style="width:100%; padding:10px 14px; background:#1a1a1a; border:1px solid #3b82f6; border-radius:8px; color:#fff; font-size:0.9rem; margin-bottom:12px; outline:none;">
+                            <input type="text" id="deviceLocationInput" placeholder="Quraşdırma yeri: məs. Nizami küçəsi 24" style="width:100%; padding:10px 14px; background:#1a1a1a; border:1px solid #3b82f6; border-radius:8px; color:#fff; font-size:0.9rem; margin-bottom:12px; outline:none;">
+                            <button onclick="connectDevice()" id="connect-btn" style="width:100%; padding:11px; background:linear-gradient(135deg,#2563eb,#1e40af); color:#fff; border:none; border-radius:8px; font-weight:600; cursor:pointer; font-size:0.95rem;">Cihazı Qoş</button>
+                        </div>
+                        <div style="background:#0f0f0f; border:1px solid #2a2a2a; border-radius:12px; padding:20px;">
+                            <h3 id="order-title" style="color:#fff; font-size:1rem; margin-bottom:6px;">🛒 Yeni Modul Sifariş Et</h3>
+                            <p id="order-desc" style="color:#9ca3af; font-size:0.85rem; margin-bottom:16px;">SonoRise modullarına baxın və ehtiyacınıza uyğun olanı seçin</p>
+                            <button onclick="window.location.href='modules.html'" id="see-modules-btn" style="width:100%; padding:11px; background:#2a2a2a; color:#fff; border:1px solid #3a3a3a; border-radius:8px; font-weight:600; cursor:pointer; font-size:0.95rem;">Modulları Gör →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ordersSection" style="display:none; margin-top:40px;">
+                    <div class="section-header"><h2 id="orders-title">Sifarişlərim</h2></div>
+                    <div id="ordersContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="lang.js"></script>
+    <script>
+        document.getElementById('langSwitcherWrap').innerHTML = renderLangSwitcher();
+        document.getElementById('helloText').textContent = t('dash_hello');
+        document.getElementById('dash-title').textContent = t('dash_title');
+        document.getElementById('nav-modules-link').textContent = t('nav_modules');
+        document.getElementById('nav-dashboard-link').textContent = t('nav_dashboard');
+        document.getElementById('nav-orders-link').textContent = t('nav_orders');
+        document.getElementById('logout-btn').textContent = t('nav_logout');
+        document.getElementById('stat-modules').textContent = t('dash_total_modules');
+        document.getElementById('stat-energy').textContent = t('dash_energy');
+        document.getElementById('stat-sound').textContent = t('dash_sound');
+        document.getElementById('stat-co2').textContent = t('dash_co2');
+        document.getElementById('my-modules-title').textContent = t('dash_my_modules');
+        document.getElementById('new-module-btn').textContent = t('dash_new_module');
+        document.getElementById('orders-title').textContent = t('dash_orders_title');
+        document.getElementById('notif-title').textContent = t('dash_notifications');
+        document.getElementById('notif1-text').textContent = t('dash_notif1');
+        document.getElementById('notif2-text').textContent = t('dash_notif2');
+        document.getElementById('notif3-text').textContent = t('dash_notif3');
+        document.getElementById('modal-title').textContent = t('dash_add_module_title');
+        document.getElementById('modal-desc').textContent = t('dash_add_module_desc');
+        document.getElementById('connect-title').textContent = t('dash_connect_module');
+        document.getElementById('connect-desc').textContent = t('dash_connect_desc');
+        document.getElementById('connect-btn').textContent = t('dash_connect_btn');
+        document.getElementById('order-title').textContent = t('dash_order_module');
+        document.getElementById('order-desc').textContent = t('dash_order_desc');
+        document.getElementById('see-modules-btn').textContent = t('dash_see_modules');
+        document.getElementById('deviceIdInput').placeholder = t('dash_device_id');
+        document.getElementById('deviceLocationInput').placeholder = t('dash_device_loc');
+    </script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
